@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviator Angola - Registre-se Agora</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            padding: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .banner {
+            background: #001a4d;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .imagem {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .contador {
+            background: rgba(255, 102, 0, 0.2);
+            border: 2px solid #ff6600;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #ff6600;
+            font-weight: bold;
+            display: none;
+        }
+
+        .contador.ativo {
+            display: block;
+            animation: pulse-contador 1s ease-in-out infinite;
+        }
+
+        @keyframes pulse-contador {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .numero-contador {
+            font-size: 28px;
+            color: #ff6600;
+            font-weight: 900;
+            margin: 5px 0;
+        }
+
+        .botao-container {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .botao {
+            display: inline-block;
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #00cc00, #00aa00);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 20px rgba(0, 204, 0, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: crescer-botao 2s ease-in-out infinite;
+        }
+
+        @keyframes crescer-botao {
+            0% {
+                transform: scale(1);
+                padding: 14px 40px;
+                font-size: 16px;
+            }
+            50% {
+                transform: scale(1.15);
+                padding: 16px 50px;
+                font-size: 18px;
+            }
+            100% {
+                transform: scale(1);
+                padding: 14px 40px;
+                font-size: 16px;
+            }
+        }
+
+        .botao::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .botao:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .botao:hover {
+            background: linear-gradient(135deg, #00ff00, #00cc00);
+            transform: scale(1.2);
+            box-shadow: 0 8px 25px rgba(0, 204, 0, 0.7);
+        }
+
+        .botao:active {
+            transform: scale(1.15);
+        }
+
+        .info-section {
+            background: rgba(255, 102, 0, 0.1);
+            border: 2px solid #ff6600;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .info-title {
+            color: #ff6600;
+            font-weight: 900;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .info-text {
+            color: #fff;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .info-text strong {
+            color: #ff6600;
+        }
+
+        .info-list {
+            color: #fff;
+            font-size: 12px;
+            margin-left: 15px;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .bandeira {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .banner {
+                padding: 12px;
+            }
+
+            .botao {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+
+            .info-text {
+                font-size: 12px;
+            }
+
+            .info-list {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner">
+            <img src="https://i.ibb.co/XfXc0Lsq/file-00000000c2e071f5b1216f90fa45e78d.png" alt="Aviator" class="imagem">
+            
+            <div class="contador" id="contador">
+                <div>Redirecionando em:</div>
+                <div class="numero-contador" id="numero">3</div>
+            </div>
+
+            <div class="botao-container">
+                <a href="#" class="botao" id="botao">Registre-se</a>
+            </div>
+
+            <div class="info-section">
+                <div class="bandeira">🇦🇴</div>
+                <div class="info-title">Aviator - O Jogo Favorito de Angola</div>
+                
+                <div class="info-text">
+                    <strong>Aviator</strong> é um jogo de crash inovador que conquistou milhões de jogadores em toda Angola e no mundo. Com mecânica simples mas emocionante, oferece oportunidades reais de ganho.
+                </div>
+
+                <div class="info-text">
+                    <strong>Por que os Angolanos escolhem Aviator?</strong>
+                </div>
+
+                <ul class="info-list">
+                    <li>✈️ <strong>Ganhos até 442x:</strong> Multiplicadores incríveis para aumentar seus lucros</li>
+                    <li>💰 <strong>Saques Rápidos:</strong> Retire seus ganhos em minutos para sua conta bancária</li>
+                    <li>🔒 <strong>100% Seguro:</strong> Plataforma licenciada e regulada internacionalmente</li>
+                    <li>📱 <strong>Acesso Fácil:</strong> Jogue pelo celular, tablet ou computador</li>
+                    <li>🎁 <strong>Bônus Exclusivos:</strong> Receba créditos grátis ao se registrar</li>
+                    <li>⚡ <strong>Rápido e Emocionante:</strong> Cada rodada dura apenas alguns segundos</li>
+                </ul>
+
+                <div class="info-text" style="margin-top: 12px; font-size: 12px; color: #aaa;">
+                    Aviator é o jogo que oferece a melhor experiência de entretenimento e oportunidades de ganho para os angolanos. Junte-se a milhares de jogadores satisfeitos!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuração do contador e redirecionamento
+        let tempoRestante = 3;
+        const contador = document.getElementById('contador');
+        const numero = document.getElementById('numero');
+        const botao = document.getElementById('botao');
+        const urlRedirecionamento = 'https://seu-site-aqui.com/registro'; // Altere para o URL desejado
+
+        // Iniciar o contador
+        function iniciarContador() {
+            contador.classList.add('ativo');
+            
+            const intervalo = setInterval(() => {
+                tempoRestante--;
+                numero.textContent = tempoRestante;
+
+                if (tempoRestante <= 0) {
+                    clearInterval(intervalo);
+                    redirecionar();
+                }
+            }, 1000);
+        }
+
+        // Função de redirecionamento
+        function redirecionar() {
+            window.location.href = urlRedirecionamento;
+        }
+
+        // Iniciar contador quando a página carrega
+        window.addEventListener('load', () => {
+            iniciarContador();
+        });
+
+        // Permitir clique no botão para redirecionar imediatamente
+        botao.addEventListener('click', (e) => {
+            e.preventDefault();
+            redirecionar();
+        });
+    </script>
+</body>
+</html>
